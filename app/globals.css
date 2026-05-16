@@ -31,7 +31,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: 'Outfit', sans-serif;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -78,10 +78,11 @@ h1, h2, h3, h4, h5, h6 {
     linear-gradient(90deg, rgba(0, 229, 255, 0.03) 1px, transparent 1px);
   background-size: 50px 50px;
 }
-html,
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
 body {
   width: 100%;
-  overflow-x: hidden;
-  overscroll-behavior: none;
   -webkit-font-smoothing: antialiased;
 }

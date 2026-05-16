@@ -81,7 +81,7 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      <main className="w-full bg-transparent text-white relative z-10">
+      <main className="w-full bg-transparent text-white relative z-10 overflow-x-clip">
         <Navbar />
         <Hero3D />
         <AboutSection />
