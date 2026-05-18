@@ -1,69 +1,430 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import CountUp from "react-countup";
 import { ArrowRight } from "lucide-react";
+import { useRef } from "react";
 
 export default function Hero3D() {
+
+  const statsRef = useRef(null);
+
+  const isInView = useInView(statsRef,{
+    once:false,
+    amount:0.4
+  });
+
   return (
-    <section id="home" className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-transparent">
-      
-      {/* HERO CONTENT */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.2, ease: "easeOut" }}
-        className="relative z-20 text-center px-6 max-w-6xl mx-auto mt-20"
-      >
-        <div className="inline-block mb-6 px-6 py-2 border border-[#00E5FF]/40 bg-[#00E5FF]/5 backdrop-blur-md rounded-full text-[#80f2ff] text-sm tracking-widest font-sans uppercase shadow-[0_0_15px_rgba(0,229,255,0.2)]">
-          Premium Construction Company
-        </div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.2 }}
-          className="text-5xl md:text-8xl font-black leading-tight tracking-wider mb-6 font-serif"
-        >
-          <span className="text-blue-gradient drop-shadow-[0_0_20px_rgba(0,229,255,0.4)]">
-            SHIVAANYA
-          </span>
-          <br />
-          <span className="text-white drop-shadow-lg">REALCON</span>
-        </motion.h1>
+<section
+id="home"
 
-        <motion.p 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
-          className="text-lg md:text-xl text-gray-300 font-light tracking-wide max-w-2xl mx-auto mb-10 bg-[#020617]/40 backdrop-blur-sm p-4 rounded-2xl"
-        >
-          Luxury Construction & Infrastructure Solutions with Modern Engineering Excellence.
-        </motion.p>
+className="
+relative
 
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="flex flex-wrap justify-center gap-6"
-        >
-          <a
-            href="#contact"
-            className="group relative px-8 py-4 bg-[#00E5FF] text-[#020617] font-semibold text-lg overflow-hidden flex items-center gap-3 transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,229,255,0.4)] rounded-full"
-          >
-            <span className="relative z-10">Get a Quote</span>
-            <ArrowRight className="relative z-10 group-hover:translate-x-1 transition-transform" size={20} />
-            <div className="absolute inset-0 h-full w-0 bg-[#80f2ff] transition-all duration-300 ease-out group-hover:w-full z-0"></div>
-          </a>
+min-h-screen
 
-          <a
-            href="#projects"
-            className="px-8 py-4 border border-[#00E5FF]/50 text-[#00E5FF] bg-[#020617]/50 font-semibold text-lg hover:bg-[#00E5FF]/20 transition-colors duration-300 backdrop-blur-sm rounded-full"
-          >
-            View Projects
-          </a>
-        </motion.div>
-      </motion.div>
+overflow-hidden
 
-    </section>
-  );
+flex
+items-center
+justify-center
+">
+
+{/* Background */}
+
+<div className="absolute inset-0 -z-10">
+
+<video
+autoPlay
+muted
+loop
+playsInline
+
+className="
+w-full
+h-full
+
+object-cover
+">
+
+<source src="/videos/construction.mp4"/>
+
+</video>
+
+
+<div className="absolute inset-0 bg-black/75"/>
+
+
+<div className="
+absolute
+
+top-0
+left-1/2
+
+-translate-x-1/2
+
+w-[500px]
+h-[250px]
+
+bg-cyan-500/10
+
+blur-[120px]
+"/>
+
+</div>
+
+
+
+
+<div className="
+relative z-20
+
+text-center
+
+px-6
+
+max-w-6xl
+mx-auto
+">
+
+
+
+
+{/* badge */}
+
+<motion.div
+
+initial={{
+opacity:0,
+y:-20
+}}
+
+whileInView={{
+opacity:1,
+y:0
+}}
+
+viewport={{
+once:false
+}}
+
+className="
+inline-flex
+
+px-5 py-2
+
+rounded-full
+
+bg-white/5
+
+border
+border-cyan-400/20
+
+text-cyan-300
+
+tracking-[3px]
+
+uppercase
+
+text-xs
+
+mb-6
+"
+
+>
+
+PREMIUM CONSTRUCTION COMPANY
+
+</motion.div>
+
+
+
+
+
+{/* heading */}
+
+<motion.h1
+
+initial={{
+opacity:0,
+y:40
+}}
+
+whileInView={{
+opacity:1,
+y:0
+}}
+
+viewport={{
+once:false
+}}
+
+className="
+font-black
+leading-none
+"
+
+>
+
+<span className="
+block
+
+text-cyan-300
+
+text-5xl
+md:text-7xl
+lg:text-[85px]
+">
+
+SHIVAANYA
+
+</span>
+
+
+
+<span className="
+block
+
+text-white
+
+text-4xl
+md:text-6xl
+lg:text-[80px]
+">
+
+REALCON
+
+</span>
+
+</motion.h1>
+
+
+
+
+
+<p className="
+text-gray-300
+
+max-w-2xl
+mx-auto
+
+mt-8
+">
+
+Delivering premium construction,
+infrastructure and manpower solutions.
+
+</p>
+
+
+
+
+
+{/* buttons */}
+
+<div className="
+flex
+justify-center
+
+gap-4
+
+mt-8
+
+flex-wrap
+">
+
+<a
+
+href="#contact"
+
+className="
+px-7 py-3
+
+rounded-full
+
+bg-cyan-400
+
+text-black
+
+font-semibold
+"
+
+>
+
+Get Quote
+
+</a>
+
+
+
+<a
+
+href="#projects"
+
+className="
+px-7 py-3
+
+rounded-full
+
+border
+border-cyan-400/30
+
+text-cyan-200
+"
+
+>
+
+Projects
+
+</a>
+
+</div>
+
+
+
+
+
+
+{/* STATS */}
+
+<div
+
+ref={statsRef}
+
+className="
+mt-16
+
+flex
+justify-center
+
+gap-16
+md:gap-32
+
+flex-wrap
+"
+
+>
+
+<div>
+
+<h2 className="
+text-cyan-300
+
+text-4xl
+
+font-bold
+">
+
+{isInView && (
+
+<CountUp
+
+start={0}
+end={100}
+
+duration={3}
+
+/>
+
+)}
+
++
+
+</h2>
+
+<p className="text-gray-400">
+
+Projects
+
+</p>
+
+</div>
+
+
+
+
+
+<div>
+
+<h2 className="
+text-cyan-300
+
+text-4xl
+
+font-bold
+">
+
+{isInView && (
+
+<CountUp
+
+start={0}
+end={9}
+
+duration={3}
+
+/>
+
+)}
+
++
+
+</h2>
+
+<p className="text-gray-400">
+
+Experience
+
+</p>
+
+</div>
+
+
+
+
+
+<div>
+
+<h2 className="
+text-cyan-300
+
+text-4xl
+
+font-bold
+">
+
+{isInView && (
+
+<CountUp
+
+start={0}
+end={300}
+
+duration={4}
+
+/>
+
+)}
+
++
+
+</h2>
+
+<p className="text-gray-400">
+
+Workforce
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+);
+
 }

@@ -1,150 +1,524 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Map } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 
 export default function ContactSection() {
-  return (
-    <section id="contact" className="relative py-28 px-6 md:px-12 lg:px-20 bg-[#020617]/80 overflow-hidden bg-blueprint">
-      
-      {/* BACKGROUND ELEMENTS */}
-      <div className="absolute bottom-0 right-0 w-[50vw] h-[50vw] bg-gradient-radial from-[#1e293b] to-transparent opacity-30 pointer-events-none"></div>
 
-      {/* Huge Faint Icon Background - Animated */}
-      <motion.div 
-        animate={{ scale: [1, 1.1, 1], opacity: [0.01, 0.03, 0.01] }}
-        transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-        className="absolute left-0 bottom-0 text-[#00E5FF] pointer-events-none"
-      >
-        <Map size={600} strokeWidth={1} />
-      </motion.div>
+return(
 
-      {/* Radar Pulse Rings */}
-      <motion.div 
-        animate={{ scale: [0.5, 2], opacity: [0.2, 0] }}
-        transition={{ repeat: Infinity, duration: 4, ease: "easeOut" }}
-        className="absolute left-[10%] bottom-[10%] w-[400px] h-[400px] rounded-full border border-[#00E5FF]/30 pointer-events-none"
-      ></motion.div>
+<section
 
-      <div className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-        
-        {/* INFO SIDE */}
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="flex items-center gap-4 mb-4">
-            <span className="w-8 h-[1px] bg-[#00E5FF] shadow-[0_0_5px_rgba(0,229,255,0.8)]"></span>
-            <span className="text-[#00E5FF] tracking-[0.2em] text-sm uppercase">Get In Touch</span>
-          </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-8">
-            Contact <span className="text-blue-gradient italic font-light drop-shadow-md">Us</span>
-          </h2>
-          
-          <p className="text-gray-300 leading-relaxed mb-12 font-light">
-            Whether you have a question about our services, projects, or anything else, our team is ready to answer all your inquiries.
-          </p>
+id="contact"
 
-          <div className="space-y-8">
-            <div className="flex items-start gap-6 group">
-              <div className="w-12 h-12 rounded-full border border-[#1e293b] flex items-center justify-center text-[#00E5FF] group-hover:bg-[#00E5FF] group-hover:text-[#020617] group-hover:shadow-[0_0_15px_rgba(0,229,255,0.8)] transition-all shrink-0 bg-[#020617]">
-                <MapPin size={20} />
-              </div>
-              <div className="bg-[#020617]/50 backdrop-blur-sm p-2 -m-2 rounded">
-                <h4 className="text-white font-serif text-xl mb-2">Registered Office</h4>
-                <p className="text-gray-400 font-light leading-relaxed">
-                  136, 1st Floor, I-Thum Tower-B,<br />
-                  Plot No. A-40, Sector-62, Noida<br />
-                  Gautam Buddha Nagar – 201301, U.P.
-                </p>
-              </div>
-            </div>
+className="
+bg-white
 
-            <div className="flex items-start gap-6 group">
-              <div className="w-12 h-12 rounded-full border border-[#1e293b] flex items-center justify-center text-[#00E5FF] group-hover:bg-[#00E5FF] group-hover:text-[#020617] group-hover:shadow-[0_0_15px_rgba(0,229,255,0.8)] transition-all shrink-0 bg-[#020617]">
-                <Mail size={20} />
-              </div>
-              <div className="bg-[#020617]/50 backdrop-blur-sm p-2 -m-2 rounded">
-                <h4 className="text-white font-serif text-xl mb-2">Email Us</h4>
-                <a href="mailto:srpl.noida@gmail.com" className="text-gray-400 font-light hover:text-[#00E5FF] transition-colors">
-                  srpl.noida@gmail.com
-                </a>
-              </div>
-            </div>
-            
-            <div className="flex items-start gap-6 group">
-              <div className="w-12 h-12 rounded-full border border-[#1e293b] flex items-center justify-center text-[#00E5FF] group-hover:bg-[#00E5FF] group-hover:text-[#020617] group-hover:shadow-[0_0_15px_rgba(0,229,255,0.8)] transition-all shrink-0 bg-[#020617]">
-                <Phone size={20} />
-              </div>
-              <div className="bg-[#020617]/50 backdrop-blur-sm p-2 -m-2 rounded">
-                <h4 className="text-white font-serif text-xl mb-2">Call Us</h4>
-                <a href="tel:+919999770910" className="text-gray-400 font-light hover:text-[#00E5FF] transition-colors">
-                  +91 99997 70910
-                </a>
-              </div>
-            </div>
-          </div>
-        </motion.div>
+py-28
+px-6
+md:px-12
+lg:px-20
+"
 
-        {/* FORM SIDE */}
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="bg-[#0f172a]/90 backdrop-blur-md border border-[#1e293b] p-8 md:p-12 relative"
-        >
-          {/* Decorative corner */}
-          <div className="absolute top-0 right-0 w-16 h-16 border-t border-r border-[#00E5FF] -m-[1px] shadow-[0_0_15px_rgba(0,229,255,0.3)]"></div>
-          <div className="absolute bottom-0 left-0 w-16 h-16 border-b border-l border-[#00E5FF] -m-[1px] shadow-[0_0_15px_rgba(0,229,255,0.3)]"></div>
+>
 
-          <h3 className="text-2xl font-serif text-white mb-8">Send a Message</h3>
+<div className="
+max-w-7xl
 
-          <form action="https://api.web3forms.com/submit" method="POST" className="space-y-6">
-            {/* Replace YOUR_ACCESS_KEY_HERE with the key you get from web3forms.com */}
-            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
-            <input type="hidden" name="subject" value="New Contact Request from Shivaanya Realcon Website" />
-            
-            <div>
-              <input
-                type="text"
-                name="name"
-                required
-                placeholder="Your Name"
-                className="w-full bg-transparent border-b border-[#1e293b] py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#00E5FF] transition-colors"
-              />
-            </div>
-            <div>
-              <input
-                type="email"
-                name="email"
-                required
-                placeholder="Your Email"
-                className="w-full bg-transparent border-b border-[#1e293b] py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#00E5FF] transition-colors"
-              />
-            </div>
-            <div>
-              <textarea
-                name="message"
-                rows={4}
-                required
-                placeholder="Your Message"
-                className="w-full bg-transparent border-b border-[#1e293b] py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#00E5FF] transition-colors resize-none"
-              ></textarea>
-            </div>
-            
-            <button
-              type="submit"
-              className="w-full bg-[#00E5FF] text-[#020617] font-medium py-4 mt-4 hover:bg-[#80f2ff] hover:shadow-[0_0_20px_rgba(0,229,255,0.4)] transition-all duration-300"
-            >
-              Submit Request
-            </button>
-          </form>
-        </motion.div>
+mx-auto
 
-      </div>
-    </section>
-  );
+grid
+
+lg:grid-cols-2
+
+gap-20
+">
+
+
+
+{/* LEFT */}
+
+<motion.div
+
+initial={{
+opacity:0,
+x:-40
+}}
+
+whileInView={{
+opacity:1,
+x:0
+}}
+
+viewport={{
+once:false
+}}
+
+transition={{
+duration:.8
+}}
+
+>
+
+<div className="
+flex
+items-center
+
+gap-4
+
+mb-5
+">
+
+<div className="
+w-10
+h-[2px]
+
+bg-cyan-500
+"/>
+
+<p className="
+uppercase
+
+tracking-[5px]
+
+text-cyan-500
+
+text-sm
+">
+
+GET IN TOUCH
+
+</p>
+
+</div>
+
+
+
+
+<motion.h2
+
+initial={{
+opacity:0,
+y:30
+}}
+
+whileInView={{
+opacity:1,
+y:0
+}}
+
+viewport={{
+once:false
+}}
+
+transition={{
+delay:.1
+}}
+
+className="
+text-5xl
+md:text-6xl
+
+font-bold
+
+text-black
+
+mb-8
+"
+
+>
+
+Contact
+
+<span className="
+text-cyan-500
+
+italic
+
+ml-3
+">
+
+Us
+
+</span>
+
+</motion.h2>
+
+
+
+
+<motion.p
+
+initial={{
+opacity:0
+}}
+
+whileInView={{
+opacity:1
+}}
+
+viewport={{
+once:false
+}}
+
+transition={{
+delay:.2
+}}
+
+className="
+text-gray-600
+
+text-lg
+
+leading-8
+
+mb-14
+"
+
+>
+
+Whether you have a question about services,
+projects or anything else.
+
+</motion.p>
+
+
+
+
+
+
+
+<div className="
+space-y-10
+">
+
+{[
+{
+icon:<MapPin className="text-cyan-500"/>,
+title:"Registered Office",
+text:"136, I-Thum Tower-B, Sector-62, Noida"
+},
+
+{
+icon:<Mail className="text-cyan-500"/>,
+title:"Email Us",
+text:"srpl.noida@gmail.com"
+},
+
+{
+icon:<Phone className="text-cyan-500"/>,
+title:"Call Us",
+text:"+91 99997 70910"
+}
+
+].map((item,index)=>(
+
+<motion.div
+
+key={index}
+
+initial={{
+opacity:0,
+x:-20
+}}
+
+whileInView={{
+opacity:1,
+x:0
+}}
+
+viewport={{
+once:false
+}}
+
+transition={{
+delay:index*.15
+}}
+
+whileHover={{
+x:8
+}}
+
+className="
+flex
+
+gap-5
+"
+
+>
+
+<div className="
+bg-cyan-50
+
+p-4
+
+rounded-full
+">
+
+{item.icon}
+
+</div>
+
+
+
+<div>
+
+<h4 className="
+text-2xl
+
+font-bold
+
+text-black
+">
+
+{item.title}
+
+</h4>
+
+
+<p className="
+text-gray-600
+
+mt-2
+">
+
+{item.text}
+
+</p>
+
+</div>
+
+</motion.div>
+
+))}
+
+</div>
+
+</motion.div>
+
+
+
+
+
+
+
+
+
+{/* FORM */}
+
+<motion.div
+
+initial={{
+opacity:0,
+x:40
+}}
+
+whileInView={{
+opacity:1,
+x:0
+}}
+
+viewport={{
+once:false
+}}
+
+transition={{
+duration:.8
+}}
+
+className="
+bg-white
+
+border
+
+rounded-3xl
+
+p-10
+
+shadow-xl
+"
+
+>
+
+<motion.h3
+
+initial={{
+opacity:0,
+y:20
+}}
+
+whileInView={{
+opacity:1,
+y:0
+}}
+
+viewport={{
+once:false
+}}
+
+className="
+text-4xl
+
+font-bold
+
+text-black
+
+mb-10
+"
+
+>
+
+Send a Message
+
+</motion.h3>
+
+
+
+
+<form className="
+space-y-6
+">
+
+<motion.input
+
+whileFocus={{
+scale:1.01
+}}
+
+type="text"
+
+placeholder="Your Name"
+
+className="
+w-full
+
+border
+
+border-gray-300
+
+rounded-xl
+
+p-5
+
+text-black
+
+placeholder:text-gray-400
+
+outline-none
+
+focus:border-cyan-500
+"
+/>
+
+
+
+<motion.input
+
+whileFocus={{
+scale:1.01
+}}
+
+type="email"
+
+placeholder="Your Email"
+
+className="
+w-full
+
+border
+
+border-gray-300
+
+rounded-xl
+
+p-5
+
+text-black
+
+placeholder:text-gray-400
+
+outline-none
+
+focus:border-cyan-500
+"
+/>
+
+
+
+<motion.textarea
+
+whileFocus={{
+scale:1.01
+}}
+
+rows={6}
+
+placeholder="Your Message"
+
+className="
+w-full
+
+border
+
+border-gray-300
+
+rounded-xl
+
+p-5
+
+text-black
+
+placeholder:text-gray-400
+
+outline-none
+
+focus:border-cyan-500
+"
+/>
+
+
+
+
+<motion.button
+
+whileHover={{
+scale:1.03
+}}
+
+whileTap={{
+scale:.95
+}}
+
+className="
+w-full
+
+bg-cyan-500
+
+text-white
+
+py-5
+
+rounded-xl
+
+font-semibold
+
+hover:bg-cyan-600
+"
+
+>
+
+Submit Request
+
+</motion.button>
+
+</form>
+
+</motion.div>
+
+</div>
+
+</section>
+
+);
+
 }

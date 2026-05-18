@@ -3,18 +3,40 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import Background3D from "../Components/Background3D";
-import Navbar from "../Components/Navbar";
-import Hero3D from "../Components/Hero3D";
-import AboutSection from "../Components/AboutSection";
-import ServicesSection from "../Components/ServicesSection";
-import ProjectsGallery from "../Components/ProjectsGallery";
-import PortfolioSection from "../Components/PortfolioSection";
-import ManPowerSection from "../Components/ManPowerSection";
-import EquipmentsSection from "../Components/EquipmentsSection";
-import ContactSection from "../Components/ContactSection";
-import Footer from "../Components/Footer";
+import dynamic from "next/dynamic";
 
+const Background3D =
+dynamic(()=>import("../Components/Background3D"));
+
+const Navbar =
+dynamic(()=>import("../Components/Navbar"));
+
+const Hero3D =
+dynamic(()=>import("../Components/Hero3D"));
+
+const AboutSection =
+dynamic(()=>import("../Components/AboutSection"));
+
+const ServicesSection =
+dynamic(()=>import("../Components/ServicesSection"));
+
+const ProjectsGallery =
+dynamic(()=>import("../Components/ProjectsGallery"));
+
+const PortfolioSection =
+dynamic(()=>import("../Components/PortfolioSection"));
+
+const ManPowerSection =
+dynamic(()=>import("../Components/ManPowerSection"));
+
+const EquipmentsSection =
+dynamic(()=>import("../Components/EquipmentsSection"));
+
+const ContactSection =
+dynamic(()=>import("../Components/ContactSection"));
+
+const Footer =
+dynamic(()=>import("../Components/Footer"));
 export default function Home() {
   const [loading, setLoading] = useState(true);
 

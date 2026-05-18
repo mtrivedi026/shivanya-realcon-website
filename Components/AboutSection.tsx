@@ -1,99 +1,462 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { HardHat } from "lucide-react";
+import { motion, useInView } from "framer-motion";
+import CountUp from "react-countup";
+import {
+  HardHat,
+  Building2,
+  Clock3,
+  Handshake,
+} from "lucide-react";
+import { useRef } from "react";
 
 export default function AboutSection() {
+  const countRef = useRef(null);
+
+  const inView = useInView(countRef, {
+    once: false,
+    amount: 0.4,
+  });
+
   return (
-    <section id="about" className="relative py-28 px-6 md:px-12 lg:px-20 overflow-hidden bg-[#020617]/80 bg-blueprint">
-      
-      {/* DECORATIVE ELEMENTS - CONSTRUCTION THEME */}
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#00E5FF]/30 to-transparent"></div>
-      <div className="absolute top-[-20%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-[#0f172a] blur-[150px] opacity-40 pointer-events-none"></div>
-      
-      {/* Huge Faint Icon Background - Animated */}
-      <motion.div 
-        animate={{ y: [0, -20, 0], rotate: [12, 15, 12] }}
-        transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
-        className="absolute -right-20 top-20 text-[#00E5FF] opacity-[0.02] pointer-events-none"
+    <section
+      id="about"
+      className="relative py-20 px-6 md:px-10 lg:px-16 overflow-hidden bg-white"
+    >
+
+      {/* Glow */}
+      <div className="
+      absolute
+      top-[-20%]
+      left-[-10%]
+
+      w-[35vw]
+      h-[35vw]
+
+      rounded-full
+
+      bg-cyan-100
+
+      blur-[160px]
+      opacity-40
+      " />
+
+
+      {/* Floating Icon */}
+
+      <motion.div
+        animate={{ y:[0,-20,0] }}
+        transition={{ repeat:Infinity,duration:8 }}
+        className="
+        absolute
+        -right-16
+        top-20
+
+        opacity-[0.05]
+
+        text-cyan-300
+        "
       >
-        <HardHat size={600} strokeWidth={1} />
+
+        <HardHat size={420}/>
+
       </motion.div>
 
-      <div className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-        
-        {/* IMAGE/VISUAL SIDE */}
+
+
+
+
+      <div className="
+      relative z-10
+
+      max-w-7xl
+      mx-auto
+
+      grid
+      lg:grid-cols-2
+
+      gap-10
+      lg:gap-14
+
+      items-center
+      ">
+
+
+        {/* LEFT IMAGE */}
+
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="relative"
+
+          initial={{
+            opacity:0,
+            x:-60
+          }}
+
+          whileInView={{
+            opacity:1,
+            x:0
+          }}
+
+          viewport={{
+            once:false,
+            amount:.2
+          }}
+
+          transition={{
+            duration:.8
+          }}
+
         >
-          <div className="relative z-10 w-full max-w-lg mx-auto lg:mx-0">
-            <img
+
+          <div className="relative">
+
+            <motion.img
+
               src="/images/about-site.jpg"
-              alt="Construction Site"
-              className="w-full h-auto object-cover rounded-[35px] border border-[#00E5FF]/30 shadow-[0_20px_80px_rgba(0,229,255,0.15)] hover:scale-105 transition-transform duration-700 relative z-10"
+
+              whileHover={{
+                scale:1.02
+              }}
+
+              className="
+              rounded-[32px]
+
+              shadow-2xl
+
+              w-full
+              "
+
             />
-            
-            {/* Floating stat card */}
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="absolute -bottom-6 -left-6 md:-left-10 z-20 bg-[#0f172a]/90 backdrop-blur-md border border-[#00E5FF]/40 rounded-2xl p-6 shadow-[0_10px_40px_rgba(0,0,0,0.5)]"
+
+
+            {/* EXPERIENCE */}
+
+            <motion.div
+
+              ref={countRef}
+
+              animate={{
+                y:[0,-8,0]
+              }}
+
+              transition={{
+                repeat:Infinity,
+                duration:3
+              }}
+
+              className="
+              absolute
+
+              -bottom-6
+              -left-5
+
+              bg-white
+
+              px-6 py-5
+
+              rounded-3xl
+
+              shadow-2xl
+              "
+
             >
-              <p className="text-4xl font-serif text-[#00E5FF] mb-1 drop-shadow-[0_0_10px_rgba(0,229,255,0.5)]">9+</p>
-              <p className="text-xs tracking-widest text-gray-300 uppercase font-medium">Years of Experience</p>
+
+              <h2 className="
+              text-4xl
+
+              font-bold
+
+              text-cyan-500
+              ">
+
+                {inView && (
+
+                  <CountUp
+                    start={0}
+                    end={9}
+                    duration={3}
+                  />
+
+                )}
+
+                +
+
+              </h2>
+
+
+              <p className="
+              text-gray-500
+
+              tracking-[3px]
+
+              text-[10px]
+
+              mt-1
+              ">
+
+                YEARS EXPERIENCE
+
+              </p>
+
             </motion.div>
+
           </div>
+
         </motion.div>
 
-        {/* TEXT CONTENT */}
+
+
+
+
+
+        {/* RIGHT */}
+
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+
+          initial={{
+            opacity:0,
+            x:50
+          }}
+
+          whileInView={{
+            opacity:1,
+            x:0
+          }}
+
+          viewport={{
+            once:false
+          }}
+
+          transition={{
+            duration:.8
+          }}
+
         >
-          <div className="flex items-center gap-4 mb-6">
-            <span className="w-12 h-[1px] bg-[#00E5FF] shadow-[0_0_5px_rgba(0,229,255,0.8)]"></span>
-            <span className="text-[#00E5FF] tracking-[0.2em] text-sm uppercase">The Company</span>
+
+
+          {/* Heading */}
+
+          <div className="
+          flex
+          items-center
+
+          gap-4
+
+          mb-4
+          ">
+
+            <div className="
+            w-12
+            h-[2px]
+
+            bg-cyan-400
+            "/>
+
+            <p className="
+            uppercase
+
+            tracking-[5px]
+
+            text-cyan-500
+
+            text-sm
+            ">
+
+              THE COMPANY
+
+            </p>
+
           </div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-8 text-white leading-tight">
-            Building the <span className="text-blue-gradient italic font-light drop-shadow-md">Future</span><br/>With Precision
+
+
+          <h2 className="
+          text-5xl
+          md:text-7xl
+
+          font-bold
+
+          leading-[1.1]
+
+          mb-5
+          ">
+
+            Building the Future
+
+            <br/>
+
+            <span className="
+            text-cyan-500
+            ">
+
+              With Precision
+
+            </span>
+
           </h2>
 
-          <p className="text-gray-300 text-lg leading-relaxed mb-6 font-light">
-            SHIVAANYA REALCON PVT. LTD. delivers premium residential, commercial and infrastructure projects with unwavering precision, innovation, and trust.
-          </p>
-          
-          <p className="text-gray-400 text-base leading-relaxed mb-10 font-light">
-            Our approach blends world-class engineering with modern architectural principles, ensuring flawless project execution from foundation to finish.
+
+
+          <p className="
+          text-gray-700
+
+          leading-loose
+
+          mb-4
+          ">
+
+            SHIVAANYA REALCON delivers premium
+            construction and infrastructure
+            projects with precision,
+            innovation and trust.
+
           </p>
 
-          <div className="grid grid-cols-2 gap-x-8 gap-y-6">
+
+
+          <p className="
+          text-gray-500
+
+          leading-loose
+
+          mb-8
+          ">
+
+            We combine engineering excellence
+            with modern construction practices
+            to build durable infrastructure.
+
+          </p>
+
+
+
+
+
+          {/* CARDS */}
+
+          <div className="
+          grid
+          grid-cols-2
+
+          gap-5
+          ">
+
             {[
-              { title: "Quality Construction", desc: "Premium standards" },
-              { title: "Expert Engineering", desc: "Advanced solutions" },
-              { title: "On-Time Delivery", desc: "Full commitment" },
-              { title: "Trusted Partner", desc: "Transparent processes" }
-            ].map((feature, i) => (
-              <div key={i} className="group">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-2 h-2 rounded-full bg-[#00E5FF] group-hover:scale-150 group-hover:shadow-[0_0_10px_rgba(0,229,255,1)] transition-all"></div>
-                  <h4 className="text-white font-medium text-lg tracking-wide">{feature.title}</h4>
+              {
+                title:"Quality Construction",
+                icon:<Building2 size={18}/>
+              },
+
+              {
+                title:"Expert Engineering",
+                icon:<HardHat size={18}/>
+              },
+
+              {
+                title:"On-Time Delivery",
+                icon:<Clock3 size={18}/>
+              },
+
+              {
+                title:"Trusted Partner",
+                icon:<Handshake size={18}/>
+              }
+
+            ].map((item,index)=>(
+
+              <motion.div
+
+                key={item.title}
+
+                initial={{
+                  opacity:0,
+                  y:30
+                }}
+
+                whileInView={{
+                  opacity:1,
+                  y:0
+                }}
+
+                viewport={{
+                  once:false
+                }}
+
+                transition={{
+                  delay:index*.08
+                }}
+
+                whileHover={{
+                  y:-8,
+                  scale:1.02
+                }}
+
+                className="
+                bg-white
+
+                p-5
+
+                rounded-3xl
+
+                border
+                border-gray-100
+
+                shadow-md
+
+                hover:shadow-2xl
+
+                duration-300
+                "
+
+              >
+
+                <div className="
+                w-10
+                h-10
+
+                rounded-xl
+
+                bg-cyan-100
+
+                shadow-sm
+
+                flex
+                items-center
+                justify-center
+
+                text-cyan-500
+
+                mb-4
+                ">
+
+                  {item.icon}
+
                 </div>
-                <p className="text-gray-500 text-sm ml-5">{feature.desc}</p>
-              </div>
+
+
+
+                <h4 className="
+                font-semibold
+
+                text-black
+
+                text-sm
+                md:text-base
+                ">
+
+                  {item.title}
+
+                </h4>
+
+              </motion.div>
+
             ))}
+
           </div>
+
         </motion.div>
 
       </div>
+
     </section>
   );
 }
