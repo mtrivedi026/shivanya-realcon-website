@@ -65,22 +65,14 @@ export default function AboutSection() {
 
 
 
-
-      <div className="
-      relative z-10
-
-      max-w-7xl
-      mx-auto
-
-      grid
-      lg:grid-cols-2
-
-      gap-10
-      lg:gap-14
-
-      items-center
-      ">
-
+<div className="
+container-width
+relative z-10
+grid
+lg:grid-cols-2
+gap-10
+lg:gap-14
+items-center">
 
         {/* LEFT IMAGE */}
 

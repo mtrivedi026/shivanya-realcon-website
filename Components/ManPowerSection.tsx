@@ -92,11 +92,8 @@ opacity-[0.06]
 
 
 <div className="
+container-width
 relative z-10
-
-max-w-7xl
-
-mx-auto
 ">
 
 
@@ -278,15 +275,19 @@ amount:.2
 }}
 
 transition={{
-delay:index*.08,
-duration:.6
+delay:index*.02,
+duration:.2
 }}
 
 whileHover={{
-y:-8
+y:-12,
+scale:1.05,
+boxShadow:"0 25px 60px rgba(6,182,212,.28)"
 }}
 
 className="
+group
+
 bg-gray-50
 
 rounded-3xl
@@ -294,22 +295,27 @@ rounded-3xl
 p-8
 
 border
+border-gray-200
 
 shadow-sm
 
-hover:shadow-xl
+hover:border-cyan-400/50
 
-transition
+transition-all
+duration-500
 "
 
 >
 
 <h3 className="
 text-5xl
-
 font-bold
-
 text-black
+
+group-hover:text-cyan-500
+
+transition-all
+duration-100
 
 mb-4
 ">
@@ -329,15 +335,15 @@ duration={2.5}
 </h3>
 
 
-
 <p className="
 uppercase
-
 tracking-wide
-
 text-gray-600
-
 text-sm
+
+group-hover:text-gray-800
+
+duration-300
 ">
 
 {item.role}

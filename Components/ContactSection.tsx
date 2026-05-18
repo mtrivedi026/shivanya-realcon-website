@@ -23,9 +23,7 @@ lg:px-20
 >
 
 <div className="
-max-w-7xl
-
-mx-auto
+container-width
 
 grid
 

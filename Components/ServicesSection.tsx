@@ -138,10 +138,8 @@ text-cyan-300
 
 
 <div className="
+container-width
 relative z-10
-
-max-w-7xl
-mx-auto
 ">
 
 

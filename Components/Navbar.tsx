@@ -30,10 +30,7 @@ export default function Navbar() {
             alt="Shivaanya Realcon Logo"
           className="h-14 md:h-16 object-contain"
           />
-          <div className="hidden sm:block">
-             <h1 className="text-xl md:text-2xl font-serif font-bold text-blue-gradient tracking-wider drop-shadow-md">SHIVAANYA</h1>
-             <p className="text-[10px] text-gray-400 tracking-[0.3em] uppercase">Realcon Pvt Ltd</p>
-          </div>
+         
         </div>
 
         {/* DESKTOP MENU */}

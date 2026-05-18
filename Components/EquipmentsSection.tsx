@@ -93,8 +93,7 @@ opacity-[0.02]
 <div
 ref={countRef}
 className="
-max-w-[1600px]
-mx-auto
+container-width
 relative z-10
 ">
 

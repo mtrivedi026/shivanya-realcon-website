@@ -84,14 +84,11 @@ export default function ProjectsGallery() {
         }}
 
         className="
-        relative z-10
+container-width
+relative z-10
 
-        max-w-7xl
-
-        mx-auto
-
-        mb-16
-        "
+mb-16
+"
 
       >
 
@@ -207,12 +204,9 @@ export default function ProjectsGallery() {
       {/* GALLERY */}
 
       <div className="
-      relative z-10
-
-      max-w-[1600px]
-
-      mx-auto
-      ">
+container-width
+relative z-10
+">
 
         <div className="
         grid

@@ -104,14 +104,9 @@ strokeWidth={1}
 
 
 <div className="
+container-width
 relative z-10
-
-max-w-7xl
-
-mx-auto
 ">
-
-
 
 {/* HEADING */}
 

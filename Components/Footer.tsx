@@ -1,43 +1,206 @@
 "use client";
 
 import { FaWhatsapp } from "react-icons/fa";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
-  return (
-    <>
-      <footer className="bg-[#020617]/90 border-t border-[#1e293b] py-12 px-6 relative z-10">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-4">
-             <img
-              src="/images/logo.png"
-              alt="Shivaanya Realcon Logo"
-      className="h-12 object-contain"
-            />
-            <p className="text-gray-500 text-sm tracking-wide">
-              © {new Date().getFullYear()} Shivaanya Realcon Pvt. Ltd.
-            </p>
-          </div>
-          
-          <div className="flex gap-6 text-sm text-gray-500">
-            <a href="#" className="hover:text-[#00E5FF] transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-[#00E5FF] transition-colors">Terms of Service</a>
-          </div>
-        </div>
-      </footer>
+return (
+<>
 
-      {/* WHATSAPP FLOATING BUTTON */}
-      <a
-        href="https://wa.me/919999770910"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-8 right-8 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-[0_4px_20px_rgba(37,211,102,0.4)] hover:scale-110 hover:shadow-[0_4px_25px_rgba(37,211,102,0.6)] transition-all duration-300 z-50 group"
-      >
-        <FaWhatsapp />
-        {/* Tooltip */}
-        <span className="absolute right-full mr-4 bg-[#0f172a] text-white text-xs py-2 px-3 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-[#1e293b]">
-          Chat with us
-        </span>
-      </a>
-    </>
-  );
+<footer className="
+bg-[#020617]
+border-t
+border-cyan-900/30
+
+pt-20
+pb-8">
+
+<div className="
+container-width
+
+grid
+md:grid-cols-3
+
+gap-14">
+
+{/* LEFT */}
+
+<div>
+
+<img
+src="/images/logo.png"
+className="h-14 mb-6"
+/>
+
+<p className="
+text-gray-400
+leading-8
+max-w-sm">
+
+Shivaanya Realcon delivers premium
+construction, manpower and infrastructure
+solutions with quality and reliability.
+
+</p>
+
+</div>
+
+
+
+{/* CENTER */}
+
+<div>
+
+<h3 className="
+text-white
+font-semibold
+mb-6">
+
+Quick Links
+
+</h3>
+
+<div className="
+grid
+grid-cols-2
+gap-4
+
+text-gray-400">
+
+<a href="#about" className="hover:text-cyan-400">About</a>
+<a href="#services" className="hover:text-cyan-400">Services</a>
+<a href="#projects" className="hover:text-cyan-400">Projects</a>
+<a href="#portfolio" className="hover:text-cyan-400">Portfolio</a>
+<a href="#manpower" className="hover:text-cyan-400">Manpower</a>
+<a href="#contact" className="hover:text-cyan-400">Contact</a>
+
+</div>
+
+</div>
+
+
+
+{/* RIGHT */}
+
+<div>
+
+<h3 className="
+text-white
+font-semibold
+mb-6">
+
+Contact Info
+
+</h3>
+
+<div className="
+space-y-5
+text-gray-400">
+
+<div className="flex gap-3">
+<MapPin size={18}/>
+<p>136, I-Thum Tower-B, Sector-62, Noida</p>
+</div>
+
+<div className="flex gap-3">
+<Phone size={18}/>
+<p>+91 99997 70910</p>
+</div>
+
+<div className="flex gap-3">
+<Mail size={18}/>
+<p>srpl.noida@gmail.com</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+{/* Bottom */}
+
+<div className="
+container-width
+
+border-t
+border-slate-800
+
+mt-14
+pt-6
+
+flex
+justify-between
+
+flex-col
+md:flex-row
+
+gap-4">
+
+<p className="
+text-gray-500
+text-sm">
+
+© {new Date().getFullYear()}
+Shivaanya Realcon Pvt Ltd.
+All Rights Reserved.
+
+</p>
+
+<p className="
+text-gray-600
+text-sm">
+
+Designed & Developed by MTRIVEDI
+
+</p>
+
+</div>
+
+</footer>
+
+
+
+{/* WhatsApp */}
+
+<a
+href="https://wa.me/919999770910"
+target="_blank"
+
+className="
+fixed
+bottom-8
+right-8
+
+w-14
+h-14
+
+rounded-full
+
+bg-[#25D366]
+
+flex
+justify-center
+items-center
+
+text-white
+text-3xl
+
+shadow-lg
+
+hover:scale-110
+
+transition
+
+z-50">
+
+<FaWhatsapp/>
+
+</a>
+
+</>
+
+);
 }
