@@ -261,30 +261,40 @@ items-center">
 
 
 
-          <h2 className="
-          text-5xl
-          md:text-7xl
+    <h2
+className="
+text-4xl
+md:text-5xl
+lg:text-6xl
 
-          font-bold
+font-bold
 
-          leading-[1.1]
+leading-tight
 
-          mb-5
-          ">
+mb-8
+text-black
+"
+>
 
-            Building the Future
+Building the
 
-            <br/>
+<br />
 
-            <span className="
-            text-cyan-500
-            ">
+<span className="text-black">
 
-              With Precision
+Future
 
-            </span>
+</span>
 
-          </h2>
+<br />
+
+<span className="text-cyan-500">
+
+With Precision
+
+</span>
+
+</h2>
 
 
 

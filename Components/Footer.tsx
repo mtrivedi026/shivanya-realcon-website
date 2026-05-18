@@ -153,7 +153,7 @@ All Rights Reserved.
 text-gray-600
 text-sm">
 
-Designed & Developed by MTRIVEDI
+Designed & Developed by SRPL
 
 </p>
 
