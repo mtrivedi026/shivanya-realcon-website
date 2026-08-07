@@ -1,94 +1,350 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap');
 @import "tailwindcss";
 
+/* ============================================
+   CORPORATE BLUE DESIGN SYSTEM — SHIVAANYA REALCON
+   ============================================ */
+
 :root {
-  --background: #020617; /* Slate 950 */
-  --foreground: #f8f9fa; /* Off-white for text */
-  --blue-primary: #00E5FF; /* Electric Cyan/Blue */
-  --blue-light: #80f2ff;
-  --blue-dark: #008eb3;
-  --navy-light: #0f172a; /* Slate 900 */
-  --navy-lighter: #1e293b; /* Slate 800 */
+  /* Core Brand Colors */
+  --blue-primary:   #0A3D91; /* Deep Corporate Blue */
+  --blue-navy:      #081C3A; /* Navy Blue */
+  --blue-accent:    #3B82F6; /* Professional Blue */
+  --blue-light:     #EFF6FF; /* Very Light Blue tint */
+  --blue-mid:       #1D4ED8; /* Mid Blue */
+
+  /* Backgrounds */
+  --bg-dark:        #071A35; /* Dark section background */
+  --bg-light:       #F8FAFC; /* Light section background */
+  --bg-white:       #FFFFFF;
+  --bg-dark-card:   #0D2348; /* Cards in dark sections */
+  --bg-dark-border: #1A3560; /* Borders in dark sections */
+
+  /* Text */
+  --text-primary:   #1E293B;
+  --text-secondary: #475569;
+  --text-muted:     #94A3B8;
+  --text-on-dark:   #E2E8F0;
+  --text-on-dark-muted: #94A3B8;
+  --text-white:     #FFFFFF;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-blue-primary: var(--blue-primary);
-  --color-blue-light: var(--blue-light);
-  --color-blue-dark: var(--blue-dark);
-  --color-navy-light: var(--navy-light);
-  --color-navy-lighter: var(--navy-lighter);
-  --font-sans: 'Outfit', sans-serif;
+  --color-blue-primary:   var(--blue-primary);
+  --color-blue-navy:      var(--blue-navy);
+  --color-blue-accent:    var(--blue-accent);
+  --color-blue-light:     var(--blue-light);
+  --color-blue-mid:       var(--blue-mid);
+  --color-bg-dark:        var(--bg-dark);
+  --color-bg-light:       var(--bg-light);
+  --color-bg-dark-card:   var(--bg-dark-card);
+  --color-bg-dark-border: var(--bg-dark-border);
+  --font-sans:  'Outfit', sans-serif;
   --font-serif: 'Playfair Display', serif;
 }
 
+/* ============================================
+   BASE
+   ============================================ */
+
 html {
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--bg-dark);
+  color: var(--text-on-dark);
   font-family: 'Outfit', sans-serif;
   overflow-x: clip;
+  width: 100%;
+  -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', serif;
+  letter-spacing: -0.01em;
 }
 
 ::selection {
   background: var(--blue-primary);
-  color: var(--background);
+  color: #ffffff;
 }
 
-/* Custom utility for blue text gradient */
+/* ============================================
+   LAYOUT
+   ============================================ */
+
+.container-width {
+  max-width: 1280px;
+  margin: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* ============================================
+   TYPOGRAPHY UTILITIES
+   ============================================ */
+
+/* Section eyebrow label */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--blue-accent);
+}
+
+.section-label::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: var(--blue-accent);
+  flex-shrink: 0;
+}
+
+/* Blue gradient text */
 .text-blue-gradient {
-  background: linear-gradient(to right, var(--blue-light), var(--blue-primary), var(--blue-dark));
+  background: linear-gradient(135deg, #3B82F6 0%, #0A3D91 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-/* Custom utility for blue border gradient */
-.border-blue-gradient {
-  border-image: linear-gradient(to right, var(--blue-light), var(--blue-primary), var(--blue-dark)) 1;
+/* ============================================
+   BUTTON SYSTEM
+   ============================================ */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--blue-primary);
+  color: #ffffff;
+  padding: 14px 32px;
+  border-radius: 6px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+  border: 2px solid var(--blue-primary);
+  cursor: pointer;
 }
 
-/* Hidden scrollbar but keep functionality */
+.btn-primary:hover {
+  background: var(--blue-mid);
+  border-color: var(--blue-mid);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(10, 61, 145, 0.35);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: #ffffff;
+  padding: 14px 32px;
+  border-radius: 6px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+}
+
+.btn-outline:hover {
+  border-color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.btn-outline-blue {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--blue-primary);
+  padding: 14px 32px;
+  border-radius: 6px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+  border: 2px solid var(--blue-primary);
+  cursor: pointer;
+}
+
+.btn-outline-blue:hover {
+  background: var(--blue-primary);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   CARD SYSTEM
+   ============================================ */
+
+/* Light section card */
+.card-light {
+  background: #ffffff;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.card-light:hover {
+  border-color: rgba(10, 61, 145, 0.25);
+  box-shadow: 0 12px 32px rgba(10, 61, 145, 0.10);
+  transform: translateY(-4px);
+}
+
+/* Dark section card */
+.card-dark {
+  background: var(--bg-dark-card);
+  border: 1px solid var(--bg-dark-border);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.card-dark:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+  box-shadow: 0 12px 40px rgba(10, 61, 145, 0.25);
+  transform: translateY(-4px);
+}
+
+/* ============================================
+   SECTION DIVIDER
+   ============================================ */
+
+.section-divider {
+  width: 48px;
+  height: 3px;
+  background: var(--blue-primary);
+  border-radius: 2px;
+  margin-bottom: 20px;
+}
+
+/* ============================================
+   BLUEPRINT GRID (Dark Sections)
+   ============================================ */
+
+.bg-blueprint {
+  background-image:
+    linear-gradient(rgba(59, 130, 246, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--background);
+  background: var(--bg-dark);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--navy-lighter);
-  border-radius: 4px;
+  background: var(--blue-primary);
+  border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--blue-dark);
+  background: var(--blue-accent);
 }
 
-/* Construction Blueprint Pattern */
-.bg-blueprint {
-  background-image: 
-    linear-gradient(rgba(0, 229, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 229, 255, 0.03) 1px, transparent 1px);
-  background-size: 50px 50px;
-}
-html {
-  -webkit-font-smoothing: antialiased;
-}
+/* ============================================
+   FORM ELEMENTS
+   ============================================ */
 
-body {
+.form-input {
   width: 100%;
-  -webkit-font-smoothing: antialiased;
+  padding: 14px 18px;
+  border: 1.5px solid #CBD5E1;
+  border-radius: 8px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  background: #ffffff;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
-.container-width{
-max-width: 1280px;
-margin: auto;
-padding-left: 24px;
-padding-right: 24px;
+
+.form-input:focus {
+  border-color: var(--blue-primary);
+  box-shadow: 0 0 0 3px rgba(10, 61, 145, 0.08);
+}
+
+.form-input::placeholder {
+  color: #94A3B8;
+}
+
+/* ============================================
+   ICON CONTAINER
+   ============================================ */
+
+.icon-box-blue {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: var(--blue-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue-primary);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.icon-box-dark {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  background: rgba(10, 61, 145, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue-accent);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+/* ============================================
+   TOP BORDER ACCENT (Cards)
+   ============================================ */
+
+.card-accent-top {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-accent-top::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--blue-primary), var(--blue-accent));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.card-accent-top:hover::before {
+  transform: scaleX(1);
 }

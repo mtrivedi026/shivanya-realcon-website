@@ -10,6 +10,29 @@ import {
 } from "lucide-react";
 import { useRef } from "react";
 
+const features = [
+  {
+    title: "Quality Construction",
+    desc: "Uncompromising standards at every stage",
+    icon: <Building2 size={20} />,
+  },
+  {
+    title: "Expert Engineering",
+    desc: "Led by experienced civil engineers",
+    icon: <HardHat size={20} />,
+  },
+  {
+    title: "On-Time Delivery",
+    desc: "Committed to project timelines",
+    icon: <Clock3 size={20} />,
+  },
+  {
+    title: "Trusted Partner",
+    desc: "Long-term client relationships",
+    icon: <Handshake size={20} />,
+  },
+];
+
 export default function AboutSection() {
   const countRef = useRef(null);
 
@@ -21,444 +44,114 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="relative py-20 px-6 md:px-10 lg:px-16 overflow-hidden bg-white"
+      className="relative py-24 md:py-32 overflow-hidden bg-[#F8FAFC]"
     >
 
-      {/* Glow */}
-      <div className="
-      absolute
-      top-[-20%]
-      left-[-10%]
+      {/* Subtle top accent line */}
+      <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#0A3D91] via-[#3B82F6] to-transparent" />
 
-      w-[35vw]
-      h-[35vw]
+      {/* Background glow */}
+      <div className="absolute top-[-10%] left-[-5%] w-[40vw] h-[40vw] rounded-full bg-[#EFF6FF] blur-[140px] opacity-70 pointer-events-none" />
 
-      rounded-full
+      <div className="container-width relative z-10 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-      bg-cyan-100
-
-      blur-[160px]
-      opacity-40
-      " />
-
-
-      {/* Floating Icon */}
-
-      <motion.div
-        animate={{ y:[0,-20,0] }}
-        transition={{ repeat:Infinity,duration:8 }}
-        className="
-        absolute
-        -right-16
-        top-20
-
-        opacity-[0.05]
-
-        text-cyan-300
-        "
-      >
-
-        <HardHat size={420}/>
-
-      </motion.div>
-
-
-
-
-<div className="
-container-width
-relative z-10
-grid
-lg:grid-cols-2
-gap-10
-lg:gap-14
-items-center">
-
-        {/* LEFT IMAGE */}
-
+        {/* ── LEFT: IMAGE ─────────────────────────────────────── */}
         <motion.div
-
-          initial={{
-            opacity:0,
-            x:-60
-          }}
-
-          whileInView={{
-            opacity:1,
-            x:0
-          }}
-
-          viewport={{
-            once:false,
-            amount:.2
-          }}
-
-          transition={{
-            duration:.8
-          }}
-
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
-
           <div className="relative">
+            <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+              <img
+                src="/images/about-site.jpg"
+                alt="Shivaanya Realcon construction site"
+                className="w-full object-cover transition-transform duration-700 hover:scale-[1.03]"
+              />
+              {/* Blue tint overlay on hover */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A3D91]/30 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500" />
+            </div>
 
-            <motion.img
-
-              src="/images/about-site.jpg"
-
-              whileHover={{
-                scale:1.02
-              }}
-
-              className="
-              rounded-[32px]
-
-              shadow-2xl
-
-              w-full
-              "
-
-            />
-
-
-            {/* EXPERIENCE */}
-
+            {/* Floating Experience Badge */}
             <motion.div
-
               ref={countRef}
-
-              animate={{
-                y:[0,-8,0]
-              }}
-
-              transition={{
-                repeat:Infinity,
-                duration:3
-              }}
-
-              className="
-              absolute
-
-              -bottom-6
-              -left-5
-
-              bg-white
-
-              px-6 py-5
-
-              rounded-3xl
-
-              shadow-2xl
-              "
-
+              animate={{ y: [0, -6, 0] }}
+              transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut" }}
+              className="absolute -bottom-5 -left-4 bg-[#0A3D91] px-6 py-5 rounded-2xl shadow-2xl"
             >
-
-              <h2 className="
-              text-4xl
-
-              font-bold
-
-              text-cyan-500
-              ">
-
-                {inView && (
-
-                  <CountUp
-                    start={0}
-                    end={9}
-                    duration={3}
-                  />
-
-                )}
-
-                +
-
+              <h2 className="text-3xl font-bold text-white font-sans leading-none">
+                {inView && <CountUp start={0} end={9} duration={3} />}
+                <span className="text-[#93C5FD]">+</span>
               </h2>
-
-
-              <p className="
-              text-gray-500
-
-              tracking-[3px]
-
-              text-[10px]
-
-              mt-1
-              ">
-
-                YEARS EXPERIENCE
-
+              <p className="text-[#93C5FD] tracking-[0.2em] text-[10px] mt-1.5 uppercase font-sans font-semibold">
+                Years Experience
               </p>
-
             </motion.div>
 
+            {/* Decorative frame */}
+            <div className="absolute -top-3 -right-3 w-24 h-24 border-t-2 border-r-2 border-[#3B82F6]/40 rounded-tr-2xl pointer-events-none" />
           </div>
-
         </motion.div>
 
-
-
-
-
-
-        {/* RIGHT */}
-
+        {/* ── RIGHT: CONTENT ─────────────────────────────────── */}
         <motion.div
-
-          initial={{
-            opacity:0,
-            x:50
-          }}
-
-          whileInView={{
-            opacity:1,
-            x:0
-          }}
-
-          viewport={{
-            once:false
-          }}
-
-          transition={{
-            duration:.8
-          }}
-
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
-
+          {/* Eyebrow */}
+          <div className="flex items-center gap-3 mb-5">
+            <div className="w-8 h-[2px] bg-[#0A3D91]" />
+            <p className="uppercase tracking-[0.22em] text-[#0A3D91] text-xs font-semibold font-sans">
+              The Company
+            </p>
+          </div>
 
           {/* Heading */}
+          <h2 className="text-4xl md:text-5xl lg:text-[52px] font-serif font-bold leading-[1.1] mb-6 text-[#1E293B]">
+            Building the Future
+            <br />
+            <span className="text-[#0A3D91]">With Precision</span>
+          </h2>
 
-          <div className="
-          flex
-          items-center
+          <div className="w-12 h-[3px] bg-[#3B82F6] rounded-full mb-7" />
 
-          gap-4
-
-          mb-4
-          ">
-
-            <div className="
-            w-12
-            h-[2px]
-
-            bg-cyan-400
-            "/>
-
-            <p className="
-            uppercase
-
-            tracking-[5px]
-
-            text-cyan-500
-
-            text-sm
-            ">
-
-              THE COMPANY
-
-            </p>
-
-          </div>
-
-
-
-    <h2
-className="
-text-4xl
-md:text-5xl
-lg:text-6xl
-
-font-bold
-
-leading-tight
-
-mb-8
-text-black
-"
->
-
-Building the
-
-<br />
-
-<span className="text-black">
-
-Future
-
-</span>
-
-<br />
-
-<span className="text-cyan-500">
-
-With Precision
-
-</span>
-
-</h2>
-
-
-
-          <p className="
-          text-gray-700
-
-          leading-loose
-
-          mb-4
-          ">
-
-            SHIVAANYA REALCON delivers premium
-            construction and infrastructure
-            projects with precision,
-            innovation and trust.
-
+          <p className="text-[#475569] leading-relaxed mb-4 text-[15px]">
+            <strong className="text-[#1E293B]">SHIVAANYA REALCON</strong> delivers premium construction and infrastructure
+            projects with precision, innovation and trust. We are a registered and certified
+            construction company headquartered in Noida.
           </p>
 
-
-
-          <p className="
-          text-gray-500
-
-          leading-loose
-
-          mb-8
-          ">
-
-            We combine engineering excellence
-            with modern construction practices
-            to build durable infrastructure.
-
+          <p className="text-[#64748B] leading-relaxed mb-10 text-[15px]">
+            We combine engineering excellence with modern construction practices
+            to build durable infrastructure — on time, every time.
           </p>
 
-
-
-
-
-          {/* CARDS */}
-
-          <div className="
-          grid
-          grid-cols-2
-
-          gap-5
-          ">
-
-            {[
-              {
-                title:"Quality Construction",
-                icon:<Building2 size={18}/>
-              },
-
-              {
-                title:"Expert Engineering",
-                icon:<HardHat size={18}/>
-              },
-
-              {
-                title:"On-Time Delivery",
-                icon:<Clock3 size={18}/>
-              },
-
-              {
-                title:"Trusted Partner",
-                icon:<Handshake size={18}/>
-              }
-
-            ].map((item,index)=>(
-
+          {/* Feature Cards */}
+          <div className="grid grid-cols-2 gap-4">
+            {features.map((item, index) => (
               <motion.div
-
                 key={item.title}
-
-                initial={{
-                  opacity:0,
-                  y:30
-                }}
-
-                whileInView={{
-                  opacity:1,
-                  y:0
-                }}
-
-                viewport={{
-                  once:false
-                }}
-
-                transition={{
-                  delay:index*.08
-                }}
-
-                whileHover={{
-                  y:-8,
-                  scale:1.02
-                }}
-
-                className="
-                bg-white
-
-                p-5
-
-                rounded-3xl
-
-                border
-                border-gray-100
-
-                shadow-md
-
-                hover:shadow-2xl
-
-                duration-300
-                "
-
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false }}
+                transition={{ delay: index * 0.08 }}
+                className="card-light card-accent-top p-5 cursor-default"
               >
-
-                <div className="
-                w-10
-                h-10
-
-                rounded-xl
-
-                bg-cyan-100
-
-                shadow-sm
-
-                flex
-                items-center
-                justify-center
-
-                text-cyan-500
-
-                mb-4
-                ">
-
+                <div className="icon-box-blue mb-3">
                   {item.icon}
-
                 </div>
-
-
-
-                <h4 className="
-                font-semibold
-
-                text-black
-
-                text-sm
-                md:text-base
-                ">
-
+                <h4 className="font-semibold text-[#1E293B] text-sm mb-1 font-sans">
                   {item.title}
-
                 </h4>
-
+                <p className="text-[#94A3B8] text-xs leading-relaxed font-sans">{item.desc}</p>
               </motion.div>
-
             ))}
-
           </div>
-
         </motion.div>
-
       </div>
-
     </section>
   );
 }

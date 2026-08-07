@@ -23,8 +23,17 @@ dynamic(()=>import("../Components/ServicesSection"));
 const ProjectsGallery =
 dynamic(()=>import("../Components/ProjectsGallery"));
 
-const PortfolioSection =
-dynamic(()=>import("../Components/PortfolioSection"));
+const CorporateProfileSection =
+dynamic(()=>import("../Components/CorporateProfileSection"));
+
+const ClientsSection =
+dynamic(()=>import("../Components/ClientsSection"));
+
+const PartnersSection =
+dynamic(()=>import("../Components/PartnersSection"));
+
+const VendorsSection =
+dynamic(()=>import("../Components/VendorsSection"));
 
 const ManPowerSection =
 dynamic(()=>import("../Components/ManPowerSection"));
@@ -62,42 +71,42 @@ export default function Home() {
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.8, ease: "easeInOut" }}
-            className="fixed inset-0 z-[9999] bg-[#020617] flex flex-col items-center justify-center overflow-hidden"
+            className="fixed inset-0 z-[9999] bg-[#071A35] flex flex-col items-center justify-center overflow-hidden"
           >
             <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
+              initial={{ scale: 0.85, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 1 }}
-              className="relative"
+              transition={{ duration: 0.8 }}
+              className="relative text-center"
             >
-              {/* Premium Preloader Typography */}
-              <h1 className="text-3xl md:text-5xl font-serif font-bold text-blue-gradient tracking-[0.2em] uppercase drop-shadow-[0_0_15px_rgba(0,229,255,0.4)]">
+              {/* Logo */}
+              <h1 className="text-3xl md:text-5xl font-serif font-bold tracking-[0.2em] uppercase text-white">
                 Shivaanya
               </h1>
-              <p className="text-[#00E5FF]/70 text-center tracking-[0.4em] text-xs mt-2 uppercase">Realcon</p>
+              <p className="text-[#3B82F6] text-center tracking-[0.45em] text-xs mt-2 uppercase font-sans font-semibold">Realcon</p>
             </motion.div>
 
-            {/* Premium Loading Bar */}
-            <div className="mt-12 relative w-[200px] h-[1px] bg-[#1e293b] overflow-hidden">
+            {/* Loading Bar */}
+            <div className="mt-12 relative w-[180px] h-[2px] bg-[#1A3560] overflow-hidden rounded-full">
               <motion.div
                 initial={{ x: "-100%" }}
                 animate={{ x: "100%" }}
-                transition={{ 
-                  repeat: Infinity, 
-                  duration: 1.5, 
-                  ease: "easeInOut" 
+                transition={{
+                  repeat: Infinity,
+                  duration: 1.4,
+                  ease: "easeInOut"
                 }}
-                className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-transparent via-[#00E5FF] to-transparent shadow-[0_0_10px_rgba(0,229,255,0.8)]"
+                className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-transparent via-[#3B82F6] to-transparent"
               />
             </div>
-            
+
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 1 }}
-              className="text-[#00E5FF]/50 tracking-[0.3em] mt-8 text-xs font-light"
+              transition={{ delay: 0.8 }}
+              className="text-[#475569] tracking-[0.3em] mt-7 text-[10px] font-sans uppercase"
             >
-              INITIALIZING EXPERIENCE
+              Loading Experience
             </motion.p>
           </motion.div>
         )}
@@ -109,7 +118,10 @@ export default function Home() {
         <AboutSection />
         <ServicesSection />
         <ProjectsGallery />
-        <PortfolioSection />
+        <CorporateProfileSection />
+        <ClientsSection />
+        <PartnersSection />
+        <VendorsSection />
         <ManPowerSection />
         <EquipmentsSection />
         <ContactSection />

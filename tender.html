@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tender Submission</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0; padding: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, Helvetica, sans-serif;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+        .page {
+            width: 210mm;
+            height: 297mm;
+            background: white;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            page-break-after: always;
+        }
+        @media print {
+            body { background: none; }
+            .page { margin: 0; }
+        }
+        .navy-bg { background-color: #1e293b; }
+        .navy-text { color: #1e293b; }
+        .gold-bg { background-color: #c28b3e; }
+        .gold-text { color: #c28b3e; }
+
+        /* Page 1 */
+        .p1-header {
+            height: 180px;
+            background-color: #1f2a40;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .p1-header h1 {
+            font-size: 32px;
+            margin: 0 0 10px 0;
+            font-weight: bold;
+        }
+        .p1-header p {
+            font-size: 14px;
+            margin: 0;
+        }
+        .p1-gold-line {
+            height: 6px;
+            background-color: #c69c5e;
+        }
+        .p1-content {
+            text-align: center;
+            padding: 50px;
+        }
+        .p1-title-container {
+            display: inline-block;
+            border-top: 2px solid black;
+            border-bottom: 2px solid black;
+            padding: 10px 40px;
+            margin: 40px 0;
+        }
+        .p1-title-container h2 {
+            font-size: 26px;
+            color: #1f2a40;
+            margin: 0;
+        }
+        .p1-work {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .p1-desc {
+            font-size: 16px;
+            margin-bottom: 40px;
+            color: #333;
+        }
+        .p1-sub {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .p1-company {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1f2a40;
+            margin-bottom: 60px;
+        }
+        .p1-box {
+            background-color: #f2f2f2;
+            padding: 30px;
+            border-radius: 4px;
+            text-align: left;
+            width: 70%;
+            margin: 0 auto;
+        }
+        .p1-box h3 {
+            font-size: 16px;
+            color: #1f2a40;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .p1-box ol {
+            margin: 0;
+            padding-left: 20px;
+            font-size: 14px;
+            color: #333;
+            line-height: 1.8;
+        }
+        .p1-footer {
+            position: absolute;
+            bottom: 40px;
+            width: 100%;
+            text-align: center;
+            font-size: 12px;
+            color: #777;
+        }
+        .p1-bottom-line {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 6px;
+            background-color: #c69c5e;
+        }
+
+        /* Page 2 TOC */
+        .p2-header {
+            height: 100px;
+            background-color: #1f2a40;
+            color: white;
+            text-align: center;
+            line-height: 100px;
+        }
+        .p2-header h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+        .p2-content {
+            padding: 40px 60px;
+        }
+        .p2-proj {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 40px;
+        }
+        .toc-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        .toc-bold {
+            font-weight: bold;
+            color: #1f2a40;
+        }
+        .toc-sub {
+            padding-left: 15px;
+            color: #444;
+            margin-bottom: 12px;
+        }
+        .toc-sub-row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Section Dividers */
+        .sec-page {
+            background-color: #1f2a40;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .sec-title1 {
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: white;
+        }
+        .sec-title2 {
+            font-size: 40px;
+            font-weight: bold;
+            margin: 0;
+            position: relative;
+            background-color: #1f2a40;
+            padding: 0 20px;
+            z-index: 2;
+        }
+        .sec-line-container {
+            width: 100%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .sec-line {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #eab308;
+            z-index: 1;
+        }
+        .sec-subtitle {
+            font-size: 18px;
+            color: #ccc;
+            margin-top: 30px;
+        }
+
+        /* Portfolios (Pages 4, 5, 6) */
+        .port-page {
+            padding: 50px 40px;
+            text-align: center;
+        }
+        .port-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+        .port-grid-bg {
+            background-color: #434842; /* dark grey/olive from screenshot */
+            padding: 20px;
+            height: 850px;
+        }
+        .port-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            height: 100%;
+        }
+        .port-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .page-num {
+            position: absolute;
+            bottom: 20px;
+            right: 40px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .page-footer {
+            position: absolute;
+            bottom: 20px;
+            left: 40px;
+            font-size: 12px;
+            color: #555;
+        }
+        .page-bottom-line {
+            position: absolute;
+            bottom: 50px;
+            left: 40px;
+            right: 40px;
+            height: 1px;
+            background-color: #ccc;
+        }
+
+        /* Execution & HSE text */
+        .text-content {
+            padding: 40px 60px;
+            font-size: 14px;
+            color: #111;
+            line-height: 1.5;
+        }
+        .text-content h1 {
+            font-size: 22px;
+            text-decoration: underline;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .text-content h2 {
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        .text-content h3 {
+            font-size: 16px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .text-content p {
+            margin-bottom: 15px;
+        }
+        .text-content ul {
+            margin: 0 0 15px 0;
+            padding-left: 25px;
+        }
+        .text-content li {
+            margin-bottom: 8px;
+        }
+        .bold-uline {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        .work-agency {
+            font-weight: bold;
+            font-size: 16px;
+            text-decoration: underline;
+            margin-bottom: 10px;
+        }
+        .images-inline {
+            float: right;
+            width: 150px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .images-inline img {
+            width: 100%;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PAGE 1 -->
+    <div class="page">
+        <div class="p1-header">
+            <h1>SHIVAANYA REALCON PVT. LTD.</h1>
+            <p>Structural & Industrial Construction | PEB Solutions | Turnkey Projects</p>
+        </div>
+        <div class="p1-gold-line"></div>
+        <div class="p1-content">
+            <div class="p1-title-container">
+                <h2>TENDER SUBMISSION</h2>
+            </div>
+            
+            <div class="p1-work">Work:</div>
+            <div class="p1-desc">Replacement of Roof Sheet at West Coast Paper Mill<br>Ltd., Karnataka</div>
+            
+            <div class="p1-sub">Submitted By:</div>
+            <div class="p1-company">Shivaanya Realcon Pvt. Ltd., Noida</div>
+            
+            <div class="p1-box">
+                <h3>DOCUMENT CONTENTS</h3>
+                <ol>
+                    <li>Company Profile & Project Portfolio</li>
+                    <li>Execution Plan</li>
+                    <li>Health, Safety & Environment (HSE) Plan</li>
+                </ol>
+            </div>
+        </div>
+        <div class="p1-footer">This document is confidential and intended solely for tender evaluation purposes.</div>
+        <div class="p1-bottom-line"></div>
+    </div>
+
+    <!-- PAGE 2 -->
+    <div class="page">
+        <div class="p2-header">
+            <h1>TABLE OF CONTENTS</h1>
+        </div>
+        <div class="p2-content">
+            <div class="p2-proj">Project: Replacement of Roof Sheet at West Coast Paper Mill Ltd., Karnataka</div>
+            
+            <div class="toc-row toc-bold">
+                <span>1 Company Profile & Project Portfolio</span><span>3</span>
+            </div>
+            <div class="toc-sub">
+                <div class="toc-sub-row"><span>- Industrial & Commercial Projects Portfolio</span><span>3</span></div>
+                <div class="toc-sub-row"><span>- Manufacturing & Logistics Infrastructure Projects</span><span>4</span></div>
+                <div class="toc-sub-row"><span>- PEB Construction Projects</span><span>5</span></div>
+            </div>
+
+            <div class="toc-row toc-bold" style="margin-top:20px;">
+                <span>2 Execution Plan</span><span>7</span>
+            </div>
+            <div class="toc-sub">
+                <div class="toc-sub-row"><span>- Preparation and Planning</span><span>7</span></div>
+                <div class="toc-sub-row"><span>- Removal and Safety</span><span>7</span></div>
+                <div class="toc-sub-row"><span>- Installation</span><span>7</span></div>
+                <div class="toc-sub-row"><span>- Drainage and Maintenance</span><span>7</span></div>
+            </div>
+
+            <div class="toc-row toc-bold" style="margin-top:20px;">
+                <span>3 Health, Safety & Environment (HSE) Plan</span><span>9</span>
+            </div>
+            <div class="toc-sub">
+                <div class="toc-sub-row"><span>- Daily Safety Rules</span><span>9</span></div>
+                <div class="toc-sub-row"><span>- Personal Protective Equipment (PPE)</span><span>9</span></div>
+                <div class="toc-sub-row"><span>- Hazard Identification & Mitigation</span><span>9</span></div>
+                <div class="toc-sub-row"><span>- Emergency Response Plan</span><span>9</span></div>
+            </div>
+        </div>
+        <div class="page-bottom-line"></div>
+        <div class="page-footer">Roof Replacement – West Coast Paper Mill Ltd. | Shivaanya Realcon Pvt. Ltd.</div>
+    </div>
+
+    <!-- PAGE 3 -->
+    <div class="page sec-page">
+        <div class="sec-title1">SECTION 1</div>
+        <div class="sec-line-container">
+            <div class="sec-line"></div>
+            <div class="sec-title2">COMPANY PROFILE</div>
+        </div>
+        <div class="sec-subtitle">Project Portfolio & Track Record</div>
+    </div>
+
+    <!-- PAGE 4 -->
+    <div class="page port-page">
+        <div class="port-title">Industrial & Commercial Projects Portfolio</div>
+        <div class="port-grid-bg">
+            <div class="port-grid">
+                <img src="./public/images/project_page_15.jpg" alt="Proj 1">
+                <img src="./public/images/project_page_16.jpg" alt="Proj 2">
+                <img src="./public/images/project_page_17.jpg" alt="Proj 3">
+                <img src="./public/images/project_page_18.jpg" alt="Proj 4">
+                <img src="./public/images/project_page_21.jpg" alt="Proj 5">
+                <img src="./public/images/project_page_26.jpg" alt="Proj 6">
+            </div>
+        </div>
+        <div class="page-bottom-line"></div>
+        <div class="page-footer">Roof Replacement – West Coast Paper Mill Ltd. | Shivaanya Realcon Pvt. Ltd.</div>
+        <div class="page-num">Page 1</div>
+    </div>
+
+    <!-- PAGE 5 -->
+    <div class="page port-page">
+        <div class="port-title">Manufacturing & Logistics Infrastructure Projects</div>
+        <div class="port-grid-bg">
+            <div class="port-grid">
+                <img src="./public/images/project_page_19.jpg" alt="Proj 1">
+                <img src="./public/images/project_page_20.jpg" alt="Proj 2">
+                <img src="./public/images/project_page_22.jpg" alt="Proj 3">
+                <img src="./public/images/project_page_23.jpg" alt="Proj 4">
+                <img src="./public/images/project_page_24.jpg" alt="Proj 5">
+                <img src="./public/images/project_page_25.jpg" alt="Proj 6">
+            </div>
+        </div>
+        <div class="page-bottom-line"></div>
+        <div class="page-footer">Roof Replacement – West Coast Paper Mill Ltd. | Shivaanya Realcon Pvt. Ltd.</div>
+        <div class="page-num">Page 2</div>
+    </div>
+
+    <!-- PAGE 6 -->
+    <div class="page port-page">
+        <div class="port-title">PEB Construction Projects</div>
+        <div class="port-grid-bg">
+            <div class="port-grid">
+                <img src="./public/images/project_page_27.jpg" alt="Proj 1">
+                <img src="./public/images/project_page_28.jpg" alt="Proj 2">
+                <img src="./public/images/project_page_29.jpg" alt="Proj 3">
+                <img src="./public/images/project_page_30.jpg" alt="Proj 4">
+                <img src="./public/images/portfolio-cover.png" alt="Proj 5">
+                <img src="./public/images/about-site.jpg" alt="Proj 6">
+            </div>
+        </div>
+        <div class="page-bottom-line"></div>
+        <div class="page-footer">Roof Replacement – West Coast Paper Mill Ltd. | Shivaanya Realcon Pvt. Ltd.</div>
+        <div class="page-num">Page 3</div>
+    </div>
+
+    <!-- PAGE 7 -->
+    <div class="page sec-page">
+        <div class="sec-title1">SECTION 2</div>
+        <div class="sec-line-container">
+            <div class="sec-line"></div>
+            <div class="sec-title2">EXECUTION PLAN</div>
+        </div>
+        <div class="sec-subtitle">Methodology for Roof Sheet Replacement</div>
+    </div>
+
+    <!-- PAGE 8 -->
+    <div class="page">
+        <div class="text-content">
+            <h1>Execution Plan</h1>
+            <div class="work-agency">Work: Replacement of roof sheet at West Coast Paper Mill Ltd.</div>
+            <div class="work-agency">Agency : Shivaanya Realcon Pvt Ltd. Noida</div>
+            
+            <p>An executive plan for an aluminium shed roof replacement involves four key steps: inspecting the frame, removing the old panels safely, preparing the metal, and installing new materials.</p>
+            <p>Here is how you can organize and manage your project for a smooth replacement.</p>
+            
+            <h2>1. Preparation and Planning</h2>
+            <ul>
+                <li><b>Assess the frame:</b> Check the metal beams for rust or damage. Replace any weak parts before installing new panels.</li>
+                <li><b>Estimate costs:</b> Aluminium or colour-coated metal roof replacement costs typically range from depending on the material and thickness.</li>
+            </ul>
+
+            <h2>2. Removal and Safety</h2>
+            <ul>
+                <li><b>Gather tools:</b> You will need a ladder, safety gloves, goggles, a drill, and heavy-duty tin snips.</li>
+                <li><b>Remove old panels:</b> Unscrew the old aluminium panels carefully. Do not pry them, as this bends the underlying frame.</li>
+                <li><b>Safety note:</b> Wear gloves. Aluminium edges are very sharp.</li>
+            </ul>
+
+            <h2>3. Installation</h2>
+            <ul>
+                <li><b>Measure and cut:</b> Measure your shed twice. Cut the new roofing sheets to size using metal snips or a circular saw with a metal-cutting blade.</li>
+                <li><b>Overlap sheets:</b> Lay the metal sheets overlapping by at least one corrugation (the raised bump). This stops rainwater from leaking through.</li>
+                <li><b>Fasten securely:</b> Fix the new sheets to the frame using polymer-coated J or L-hooks. Space the hooks about 30 cm apart along the beams.</li>
+                <li><b>Use washers:</b> Always use galvanized iron (GI) washers with bitumen (a black, waterproof material) to seal the screw holes and stop roof leaks.</li>
+            </ul>
+
+            <h2>4. Drainage and Maintenance</h2>
+            <ul>
+                <li><b>Slope and drainage:</b> Ensure your roof has a natural slope. This let’s rain run off quickly so it does not pool on the metal.</li>
+                <li><b>Seal edges:</b> Apply a waterproof sealant or flashing along the top edge where the shed meets a wall to prevent leaks.</li>
+                <li><b>Thermal expansion:</b> Metal gets larger when it is hot. Leave small gaps at the joints and do not over-tighten screws. This gives the metal room to move.</li>
+            </ul>
+        </div>
+        <div class="page-bottom-line"></div>
+        <div class="page-footer">Roof Replacement – West Coast Paper Mill Ltd. | Shivaanya Realcon Pvt. Ltd.</div>
+        <div class="page-num">Page 4</div>
+    </div>
+
+    <!-- PAGE 9 -->
+    <div class="page sec-page">
+        <div class="sec-title1">SECTION 3</div>
+        <div class="sec-line-container">
+            <div class="sec-line"></div>
+            <div class="sec-title2">HSE PLAN</div>
+        </div>
+        <div class="sec-subtitle">Health, Safety & Environment Management</div>
+    </div>
+
+    <!-- PAGE 10 -->
+    <div class="page">
+        <div class="text-content">
+            <div class="images-inline">
+                <img src="./public/images/construction helmet.png" alt="Hard Hat">
+                <img src="./public/images/Safety Shoes.png" alt="Safety Boots">
+                <img src="./public/images/Safety Harness.png" alt="Safety Harness">
+                <img src="./public/images/industrial radium jacket.png" alt="Safety Vest">
+            </div>
+
+            <h1>HSE PLAN</h1>
+            <div class="work-agency">Work: Roof replacement work at WEST COAST PAPER LTD. Karnataka</div>
+            <div class="work-agency">Agency : Shivaanya Realcon Pvt. Ltd. (Noida)</div>
+            
+            <p>A Health, Safety, and Environmental (HSE) plan for a roof replacement project details the rules to keep workers safe. It identifies risks like falling or electrical hazards and lists ways to stop them. The plan requires a daily safety check and strict use of gear like hard hats and safety harnesses.</p>
+            
+            <h2>1. Daily Safety Rules</h2>
+            <ul>
+                <li><b>Permit to work:</b> Get written permission to do high-altitude work before climbing.</li>
+                <li><b>Weather check:</b> Never work on the roof if it is raining, snowing, or very windy.</li>
+                <li><b>Tool check:</b> Inspect ladders, ropes, and power tools before starting each day.</li>
+                <li><b>Safety talk:</b> Hold a 5-minute team meeting every morning to discuss daily dangers.</li>
+            </ul>
+
+            <h2>2. Gear Requirements (PPE)</h2>
+            <p>All workers must wear the following gear:</p>
+            <ul>
+                <li><b>Hard hat:</b> Protects from falling objects.</li>
+                <li><b>Safety boots:</b> Slip-resistant shoes to prevent falls.</li>
+                <li><b>Safety harness:</b> A full-body belt tied to a strong roof anchor to stop drops.</li>
+                <li><b>High-visibility vest:</b> Helps workers see each other.</li>
+                <li><b>Hand Gloves</b></li>
+                <li><b>Gogels ( Chasma )</b></li>
+                <li><b>Life line Rope</b></li>
+                <li><b>Safety Net</b></li>
+            </ul>
+
+            <h2>3. Hazard Steps</h2>
+            <ul>
+                <li><b>Risk:</b> Falls from the roof edge.
+                    <ul><li>Fix: Install physical guardrails around the roof edge and use safety nets.</li></ul>
+                </li>
+                <li><b>Risk:</b> Falling tools.
+                    <ul><li>Fix: Set up a "danger zone" barrier on the ground. Keep all people away from the area under the roof.</li></ul>
+                </li>
+                <li><b>Risk:</b> Cuts and scrapes.
+                    <ul><li>Fix: Handle sharp metal or old roof pieces with thick gloves.</li></ul>
+                </li>
+                <li><b>Risk:</b> Electric shock.
+                    <ul><li>Fix: Keep metal ladders and tools away from power lines.</li></ul>
+                </li>
+            </ul>
+
+            <h2>4. Emergency Plan</h2>
+            <ul>
+                <li><b>First Aid:</b> Keep a first aid kit on site. Assign at least one person trained in first aid to the team.</li>
+                <li><b>Communication:</b> Make sure everyone has a charged phone or radio.</li>
+                <li><b>Nearest Hospital:</b> Find the fastest route to the nearest emergency medical center before starting work.</li>
+            </ul>
+        </div>
+        <div class="page-bottom-line"></div>
+        <div class="page-footer">Roof Replacement – West Coast Paper Mill Ltd. | Shivaanya Realcon Pvt. Ltd.</div>
+        <div class="page-num">Page 5</div>
+    </div>
+
+</body>
+</html>

@@ -1,522 +1,180 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone, Send } from "lucide-react";
+
+const contactItems = [
+  {
+    icon: <MapPin size={20} />,
+    title: "Registered Office",
+    text: "136, I-Thum Tower-B, Sector-62, Noida",
+    href: "https://maps.google.com/?q=I-Thum+Tower+Noida",
+  },
+  {
+    icon: <Mail size={20} />,
+    title: "Email Us",
+    text: "srpl.noida@gmail.com",
+    href: "mailto:srpl.noida@gmail.com",
+  },
+  {
+    icon: <Phone size={20} />,
+    title: "Call Us",
+    text: "+91 99997 70910",
+    href: "tel:+919999770910",
+  },
+];
 
 export default function ContactSection() {
 
-return(
-
-<section
-
-id="contact"
-
-className="
-bg-white
-
-py-28
-px-6
-md:px-12
-lg:px-20
-"
-
->
-
-<div className="
-container-width
-
-grid
-
-lg:grid-cols-2
-
-gap-20
-">
-
-
-
-{/* LEFT */}
-
-<motion.div
-
-initial={{
-opacity:0,
-x:-40
-}}
-
-whileInView={{
-opacity:1,
-x:0
-}}
-
-viewport={{
-once:false
-}}
-
-transition={{
-duration:.8
-}}
-
->
-
-<div className="
-flex
-items-center
-
-gap-4
-
-mb-5
-">
-
-<div className="
-w-10
-h-[2px]
-
-bg-cyan-500
-"/>
-
-<p className="
-uppercase
-
-tracking-[5px]
-
-text-cyan-500
-
-text-sm
-">
-
-GET IN TOUCH
-
-</p>
-
-</div>
-
-
-
-
-<motion.h2
-
-initial={{
-opacity:0,
-y:30
-}}
-
-whileInView={{
-opacity:1,
-y:0
-}}
-
-viewport={{
-once:false
-}}
-
-transition={{
-delay:.1
-}}
-
-className="
-text-5xl
-md:text-6xl
-
-font-bold
-
-text-black
-
-mb-8
-"
-
->
-
-Contact
-
-<span className="
-text-cyan-500
-
-italic
-
-ml-3
-">
-
-Us
-
-</span>
-
-</motion.h2>
-
-
-
-
-<motion.p
-
-initial={{
-opacity:0
-}}
-
-whileInView={{
-opacity:1
-}}
-
-viewport={{
-once:false
-}}
-
-transition={{
-delay:.2
-}}
-
-className="
-text-gray-600
-
-text-lg
-
-leading-8
-
-mb-14
-"
-
->
-
-Whether you have a question about services,
-projects or anything else.
-
-</motion.p>
-
-
-
-
-
-
-
-<div className="
-space-y-10
-">
-
-{[
-{
-icon:<MapPin className="text-cyan-500"/>,
-title:"Registered Office",
-text:"136, I-Thum Tower-B, Sector-62, Noida"
-},
-
-{
-icon:<Mail className="text-cyan-500"/>,
-title:"Email Us",
-text:"srpl.noida@gmail.com"
-},
-
-{
-icon:<Phone className="text-cyan-500"/>,
-title:"Call Us",
-text:"+91 99997 70910"
-}
-
-].map((item,index)=>(
-
-<motion.div
-
-key={index}
-
-initial={{
-opacity:0,
-x:-20
-}}
-
-whileInView={{
-opacity:1,
-x:0
-}}
-
-viewport={{
-once:false
-}}
-
-transition={{
-delay:index*.15
-}}
-
-whileHover={{
-x:8
-}}
-
-className="
-flex
-
-gap-5
-"
-
->
-
-<div className="
-bg-cyan-50
-
-p-4
-
-rounded-full
-">
-
-{item.icon}
-
-</div>
-
-
-
-<div>
-
-<h4 className="
-text-2xl
-
-font-bold
-
-text-black
-">
-
-{item.title}
-
-</h4>
-
-
-<p className="
-text-gray-600
-
-mt-2
-">
-
-{item.text}
-
-</p>
-
-</div>
-
-</motion.div>
-
-))}
-
-</div>
-
-</motion.div>
-
-
-
-
-
-
-
-
-
-{/* FORM */}
-
-<motion.div
-
-initial={{
-opacity:0,
-x:40
-}}
-
-whileInView={{
-opacity:1,
-x:0
-}}
-
-viewport={{
-once:false
-}}
-
-transition={{
-duration:.8
-}}
-
-className="
-bg-white
-
-border
-
-rounded-3xl
-
-p-10
-
-shadow-xl
-"
-
->
-
-<motion.h3
-
-initial={{
-opacity:0,
-y:20
-}}
-
-whileInView={{
-opacity:1,
-y:0
-}}
-
-viewport={{
-once:false
-}}
-
-className="
-text-4xl
-
-font-bold
-
-text-black
-
-mb-10
-"
-
->
-
-Send a Message
-
-</motion.h3>
-
-
-
-
-<form className="
-space-y-6
-">
-
-<motion.input
-
-whileFocus={{
-scale:1.01
-}}
-
-type="text"
-
-placeholder="Your Name"
-
-className="
-w-full
-
-border
-
-border-gray-300
-
-rounded-xl
-
-p-5
-
-text-black
-
-placeholder:text-gray-400
-
-outline-none
-
-focus:border-cyan-500
-"
-/>
-
-
-
-<motion.input
-
-whileFocus={{
-scale:1.01
-}}
-
-type="email"
-
-placeholder="Your Email"
-
-className="
-w-full
-
-border
-
-border-gray-300
-
-rounded-xl
-
-p-5
-
-text-black
-
-placeholder:text-gray-400
-
-outline-none
-
-focus:border-cyan-500
-"
-/>
-
-
-
-<motion.textarea
-
-whileFocus={{
-scale:1.01
-}}
-
-rows={6}
-
-placeholder="Your Message"
-
-className="
-w-full
-
-border
-
-border-gray-300
-
-rounded-xl
-
-p-5
-
-text-black
-
-placeholder:text-gray-400
-
-outline-none
-
-focus:border-cyan-500
-"
-/>
-
-
-
-
-<motion.button
-
-whileHover={{
-scale:1.03
-}}
-
-whileTap={{
-scale:.95
-}}
-
-className="
-w-full
-
-bg-cyan-500
-
-text-white
-
-py-5
-
-rounded-xl
-
-font-semibold
-
-hover:bg-cyan-600
-"
-
->
-
-Submit Request
-
-</motion.button>
-
-</form>
-
-</motion.div>
-
-</div>
-
-</section>
-
-);
-
+  return (
+    <section
+      id="contact"
+      className="relative py-24 md:py-32 bg-[#F8FAFC] overflow-hidden"
+    >
+      {/* Top accent */}
+      <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#0A3D91] via-[#3B82F6] to-transparent" />
+
+      {/* Background glow */}
+      <div className="absolute top-0 left-0 w-[40vw] h-[40vw] rounded-full bg-[#EFF6FF] blur-[120px] opacity-80 pointer-events-none" />
+
+      <div className="container-width relative z-10 grid lg:grid-cols-2 gap-16 lg:gap-24">
+
+        {/* ── LEFT: INFO ─────────────────────────────────────── */}
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.8 }}
+        >
+          {/* Eyebrow */}
+          <div className="flex items-center gap-3 mb-5">
+            <div className="w-8 h-[2px] bg-[#0A3D91]" />
+            <p className="uppercase tracking-[0.22em] text-[#0A3D91] text-xs font-semibold font-sans">
+              Get In Touch
+            </p>
+          </div>
+
+          {/* Heading */}
+          <h2 className="text-4xl md:text-5xl lg:text-[52px] font-serif font-bold text-[#1E293B] leading-tight mb-3">
+            Contact{" "}
+            <span className="text-[#0A3D91] italic">Us</span>
+          </h2>
+
+          <div className="w-12 h-[3px] bg-[#3B82F6] rounded-full mb-7" />
+
+          <p className="text-[#475569] text-[15px] leading-relaxed mb-12 font-sans max-w-sm">
+            Whether you have a question about our services, projects, or would
+            like to discuss a new opportunity — we'd love to hear from you.
+          </p>
+
+          {/* Contact Items */}
+          <div className="space-y-6">
+            {contactItems.map((item, index) => (
+              <motion.a
+                key={index}
+                href={item.href}
+                target={item.href.startsWith("http") ? "_blank" : undefined}
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, x: -16 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: false }}
+                transition={{ delay: index * 0.12 }}
+                whileHover={{ x: 4 }}
+                className="flex items-start gap-5 group cursor-pointer"
+              >
+                <div className="icon-box-blue flex-shrink-0 group-hover:bg-[#0A3D91] group-hover:text-white transition-all duration-300">
+                  {item.icon}
+                </div>
+                <div>
+                  <h4 className="text-[13px] font-semibold text-[#94A3B8] uppercase tracking-widest font-sans mb-1">
+                    {item.title}
+                  </h4>
+                  <p className="text-[#1E293B] font-medium text-[15px] font-sans group-hover:text-[#0A3D91] transition-colors duration-200">
+                    {item.text}
+                  </p>
+                </div>
+              </motion.a>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* ── RIGHT: FORM ────────────────────────────────────── */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.8 }}
+          className="bg-white border border-[#E2E8F0] rounded-3xl p-8 md:p-10 shadow-lg shadow-[#0A3D91]/5 relative overflow-hidden"
+        >
+          {/* Decorative top border */}
+          <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#0A3D91] to-[#3B82F6]" />
+
+          <h3 className="text-2xl font-serif font-bold text-[#1E293B] mb-1">
+            Send a Message
+          </h3>
+          <p className="text-[#94A3B8] text-sm font-sans mb-8">
+            We'll get back to you within 24 hours.
+          </p>
+
+          <form className="space-y-5">
+            {/* Name & Email row */}
+            <div className="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label className="block text-xs font-semibold text-[#475569] mb-2 uppercase tracking-wider font-sans">
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  placeholder=""
+                  className="form-input"
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-semibold text-[#475569] mb-2 uppercase tracking-wider font-sans">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  placeholder=""
+                  className="form-input"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-xs font-semibold text-[#475569] mb-2 uppercase tracking-wider font-sans">
+                Phone Number
+              </label>
+              <input
+                type="tel"
+                placeholder=""
+                className="form-input"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs font-semibold text-[#475569] mb-2 uppercase tracking-wider font-sans">
+                Message
+              </label>
+              <textarea
+                rows={5}
+                placeholder="Tell us about your project..."
+                className="form-input resize-none"
+              />
+            </div>
+
+            <motion.button
+              type="submit"
+              whileHover={{ scale: 1.02, translateY: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className="btn-primary w-full justify-center text-sm py-4 gap-2 shadow-lg shadow-[#0A3D91]/20"
+            >
+              <Send size={15} />
+              Submit Request
+            </motion.button>
+          </form>
+        </motion.div>
+      </div>
+    </section>
+  );
 }
