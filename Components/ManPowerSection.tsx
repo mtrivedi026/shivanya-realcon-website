@@ -7,13 +7,9 @@ import { useRef } from "react";
 
 const workforce = [
   { role: "Civil Engineers", qty: 12 },
-  { role: "Site Supervisors", qty: 20 },
-  { role: "Skilled Labour", qty: 150 },
-  { role: "Unskilled Labour", qty: 200 },
-  { role: "Electricians", qty: 25 },
-  { role: "Bar Benders", qty: 40 },
-  { role: "Masons", qty: 80 },
-  { role: "Carpenters", qty: 60 },
+  { role: "Site Supervisor", qty: 24 },
+  { role: "Skilled Manpower", qty: 100 },
+  { role: "Unskilled Manpower", qty: 200 },
 ];
 
 export default function ManPowerSection() {

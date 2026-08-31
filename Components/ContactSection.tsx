@@ -1,13 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { Mail, MapPin, Phone, Send, Globe } from "lucide-react";
 
 const contactItems = [
   {
     icon: <MapPin size={20} />,
     title: "Registered Office",
-    text: "136, I-Thum Tower-B, Sector-62, Noida",
+    text: "136, 1st Floor, I-Thum Tower-B, Plot No. A - 40, Sector-62, Noida, Gautam Buddha Nagar - 201301 (U.P.)",
     href: "https://maps.google.com/?q=I-Thum+Tower+Noida",
   },
   {
@@ -21,6 +21,12 @@ const contactItems = [
     title: "Call Us",
     text: "+91 99997 70910",
     href: "tel:+919999770910",
+  },
+  {
+    icon: <Globe size={20} />,
+    title: "Website",
+    text: "www.shivaanyarealcon.in",
+    href: "https://www.shivaanyarealcon.in",
   },
 ];
 

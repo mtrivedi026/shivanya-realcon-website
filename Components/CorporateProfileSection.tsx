@@ -7,12 +7,7 @@ import { useRef } from "react";
 
 /* ─── Data ─────────────────────────────────────────────────── */
 
-const HIGHLIGHTS = [
-  "ISO Certified Construction Practices",
-  "Government Registered Contractor",
-  "100+ Successful Projects",
-  "300+ Skilled Workforce",
-];
+
 
 const STATS = [
   { end: 100, suffix: "+", label: "Projects" },
@@ -45,13 +40,6 @@ function ImagePanel() {
         />
 
 
-        {/* Certified Contractor badge */}
-        <div className="absolute top-5 left-5 z-10 flex items-center gap-2 bg-[#0A3D91]/90 backdrop-blur-sm border border-[#3B82F6]/30 rounded-xl px-4 py-2 shadow-lg">
-          <Award size={14} className="text-[#93C5FD] flex-shrink-0" />
-          <span className="text-white text-xs font-semibold font-sans tracking-wide">
-            Certified Contractor
-          </span>
-        </div>
 
         {/* Bottom label */}
         <div className="absolute bottom-5 left-5 right-5 z-10">
@@ -135,26 +123,6 @@ function ContentPanel({ inView }: { inView: boolean }) {
         certifications and equipment information.
       </p>
 
-      {/* Feature list */}
-      <ul className="space-y-3 mb-8">
-        {HIGHLIGHTS.map((text, i) => (
-          <motion.li
-            key={i}
-            initial={{ opacity: 0, x: -14 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false }}
-            transition={{ delay: i * 0.08 }}
-            className="flex items-center gap-3 text-[#CBD5E1] text-sm font-sans"
-          >
-            <CheckCircle2
-              size={16}
-              className="text-[#3B82F6] flex-shrink-0"
-              strokeWidth={2.5}
-            />
-            {text}
-          </motion.li>
-        ))}
-      </ul>
 
       {/* Stats row */}
       <div className="flex items-center border-y border-[#1A3560] py-6 mb-8">

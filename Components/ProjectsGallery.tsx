@@ -7,10 +7,11 @@ export default function ProjectsGallery() {
   const projectImages = Array.from({ length: 23 }, (_, i) => i + 15);
 
   const categories = [
-    "Residential", "Commercial", "Industrial", "Infrastructure",
-    "Residential", "Commercial", "Industrial", "Infrastructure",
-    "Residential", "Commercial", "Industrial", "Infrastructure",
-    "Residential", "Commercial", "Industrial", "Infrastructure",
+    "Residential", "Industrial", "Residential", "Industrial", "Residential",
+    "Residential", "Residential", "Commercial", "Residential", "Commercial",
+    "Industrial", "Residential", "Residential", "Residential", "Residential",
+    "Infrastructure", "Industrial", "Industrial", "Industrial", "Industrial",
+    "Industrial", "Industrial", "Industrial"
   ];
 
   return (
@@ -95,7 +96,7 @@ export default function ProjectsGallery() {
               {/* Card Footer */}
               <div className="px-4 py-4 border-t border-[#E2E8F0]">
                 <span className="text-[#3B82F6] uppercase text-[10px] tracking-[0.18em] font-semibold font-sans block mb-1">
-                  {categories[idx % 4]}
+                  {categories[idx] || "Industrial"}
                 </span>
                 <h3 className="text-[#1E293B] font-semibold text-sm font-sans group-hover:text-[#0A3D91] transition-colors duration-200">
                   Project {idx + 1}

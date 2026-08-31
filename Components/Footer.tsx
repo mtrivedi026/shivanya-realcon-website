@@ -38,7 +38,7 @@ export default function Footer() {
 
               {/* Tagline */}
               <p className="text-[#3B82F6] text-[11px] tracking-[0.22em] uppercase font-semibold font-sans">
-                Building Trust. Building Tomorrow.
+                Trusted for the Best
               </p>
             </div>
 
