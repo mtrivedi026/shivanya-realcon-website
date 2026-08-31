@@ -48,7 +48,7 @@ export default function ServicesSection() {
   return (
     <section
       id="services"
-      className="relative py-24 md:py-32 overflow-hidden bg-[#071A35] bg-blueprint"
+      className="relative py-24 md:py-32 overflow-hidden bg-[#071A35]"
     >
 
       {/* Subtle radial glow */}

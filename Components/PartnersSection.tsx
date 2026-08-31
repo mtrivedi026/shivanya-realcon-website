@@ -78,7 +78,7 @@ export default function PartnersSection() {
   return (
     <section
       id="partners"
-      className="relative py-24 md:py-28 overflow-hidden bg-[#071A35] bg-blueprint"
+      className="relative py-24 md:py-28 overflow-hidden bg-[#071A35]"
     >
 
       {/* Background ambient glows */}

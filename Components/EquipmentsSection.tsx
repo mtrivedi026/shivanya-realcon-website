@@ -34,7 +34,7 @@ export default function EquipmentsSection() {
   return (
     <section
       id="equipments"
-      className="relative py-24 md:py-32 overflow-hidden bg-[#071A35] bg-blueprint border-t border-[#1A3560]"
+      className="relative py-24 md:py-32 overflow-hidden bg-[#071A35] border-t border-[#1A3560]"
     >
 
       {/* Background glows */}

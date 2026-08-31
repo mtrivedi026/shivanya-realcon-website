@@ -24,7 +24,7 @@ export default function PortfolioSection() {
   return (
     <section
       id="portfolio"
-      className="relative py-24 md:py-32 overflow-hidden bg-[#071A35] bg-blueprint"
+      className="relative py-24 md:py-32 overflow-hidden bg-[#071A35]"
     >
 
       {/* Background glows */}
